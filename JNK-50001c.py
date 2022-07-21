@@ -2,7 +2,9 @@ from time import sleep
 import RPi.GPIO as GPIO
 import csv
 import time
+import os
 # Set up BCM GPIO numbering.
+GPIO.setwarnings(False)
 GPIO.setmode(GPIO.BCM)
 # Set up input pins.
 SENSOR_1_INPUT = 18
@@ -19,24 +21,21 @@ while True:
     if(SENSOR_1_VALUE == 0):
         lista.append(str(SENSOR_1_VALUE))
         valorSTR = str(SENSOR_1_VALUE)
-        print (SENSOR_1_VALUE)
-#    datos['Nombre'] = lista
-#    datos.append(SENSOR_1_VALUE)
-        with open('Phj.txt', 'a', newline='') as csvfile:
+
+        with open('datos.txt', 'a', newline='') as csvfile:
+            os.chmod("/home/pi/datos.txt", 0o755)
+
             csvfile.write(','.join(valorSTR)+'\n')
-            #csvfile.close()
-            print (SENSOR_1_VALUE)
-            time.sleep(1)
-#            break
+
+            time.sleep(0.3)
 
     else:
-#        with open('Phj.txt', 'a', newline='') as csvfile:
-#            csvfile.write(','.join(lista2)+'\n')
+        with open('Phj.txt', 'a', newline='') as csvfile:
+#            csvfile.write(','.join(" ")+'\n')
 #            break
-            print (lista2)
-            time.sleep(1)
+          #  print (lista2)
+            time.sleep(0.3)
 
 #datos['Nombre'] = lista
 
 #print (datos)
-
