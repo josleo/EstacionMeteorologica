@@ -22,3 +22,6 @@ es un archivo python el cual contiene codigo de nuestro bot creado en Telegram
 
 ## GUVA-125.ino 
 archivo para arduino el cual sera leido por puerto serial de la rasberry pi
+
+## requirements.txt
+ aqui encontrara las dependencias instaladas para python 
